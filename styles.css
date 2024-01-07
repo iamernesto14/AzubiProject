@@ -9,11 +9,13 @@
     --black: #000000;
     --plain-white: #FFFFFF;
     --pure-red: #C82424;
+    --dark-red: #a51010;
     --gray: #CDC9C9;
     --light-gray: #D9D9D9;
     --dark-gray: #8B8B8B;
     --offWhite: #6C6C6C;
     --offGray: #F9F9F9;
+    --dark-gray: #aba9a9;
     --skyBlue: #3F596C;
     --darkGreen: #0F3041;
     --textArea-color: #2D2D2D;
@@ -86,13 +88,19 @@ button {
     border: 1px solid var(--pure-red);
     background-color: var(--pure-red);
     color: var(--plain-white);
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
+}
+
+button:hover {
+    background-color: var(--dark-red);
 }
 
 .nav-logo {
-    /* padding: 5px 5%; */
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 .nav-logo img {
@@ -128,6 +136,12 @@ nav li {
     list-style: none;
     padding: 16px;
     border-bottom: 1px solid var(--dark-gray);
+}
+
+nav li:hover {
+    background-color: var(--pure-red);
+    cursor: pointer;
+    transition: background-color 0.5s ease-in-out;
 }
 
 nav li a {
@@ -274,6 +288,12 @@ h1 {
     height: 256px;
     gap: var(--spacer);
     border-bottom: 2px solid var(--gray);
+}
+
+.work_card:hover {
+    cursor: pointer;
+    background-color: var(--dark-gray);
+    transition: background-color 0.5s ease-in-out
 }
 
 .work_card h3 {
@@ -685,7 +705,7 @@ footer li a {
         background-color: transparent;
         display: flex;
         justify-content: flex-end;
-        gap: 16px;
+        gap: 14px;
         align-items: center;
     }
     
@@ -693,6 +713,33 @@ footer li a {
         list-style: none;
         padding: 0;
         border-bottom: none;
+        position: relative;
+    }
+
+    nav li::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background-color: var(--pure-red);
+        bottom: -3px;
+        left: 0;
+        transition: width 0.3s ease-in-out;
+    }
+
+    nav li:hover::after {
+        content: "";
+        position: absolute;
+        width: 60%;
+        height: 2px;
+        background-color: var(--pure-red);
+        bottom: -3px;
+        left: 0;
+    }
+
+    nav li:hover {
+        background-color: transparent;
+        cursor: pointer;
     }
     
     nav li a {
@@ -888,5 +935,28 @@ footer li a {
     
     #small_head {
         display: block;
+    }
+
+    /* footer section */
+    .service_container {
+        flex: 67%;
+        flex-direction: row;
+        gap: 1.2rem;
+        justify-content: space-between;
+        padding-top: 80px;
+    }
+
+    .foot {
+        flex: 33%;
+        padding-right: 3%;
+        padding-top: 80px;
+    }
+
+    .footer_content {
+        position: unset;
+    }
+
+    .service_up {
+        position: unset;
     }
 }
